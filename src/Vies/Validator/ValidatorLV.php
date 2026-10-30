@@ -40,8 +40,8 @@ class ValidatorLV extends ValidatorAbstract
             return false;
         }
 
-        if ((int)$vatNumber[0] <= 3) {
-            return false;
+        if (preg_match('/^[0-3]/', $vatNumber)) {
+            return preg_match('/^[0-3]\d[0-1]\d/', $vatNumber) == 1;
         }
 
         $weights = [9, 1, 4, 8, 3, 10, 2, 5, 7, 6];
